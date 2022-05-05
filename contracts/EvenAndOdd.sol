@@ -10,7 +10,6 @@ contract NFT is ERC721 {
     using Strings for uint256;
     uint256 public tokenId;
     enum Status{win, lose}
-    string public baseExtension = ".json";
 
     mapping(uint256 => Status) public tokenIdToStatus;
     constructor(string memory _nameOfToken, string memory _tokenSymbol) ERC721(_nameOfToken, _tokenSymbol) public {

@@ -1,25 +1,27 @@
 from brownie import NFT, network
-from get_metadata.metadata import metadata_template
+from get_metadata.rikeby.metadata import metadata_template
 from pathlib import Path
+from scripts.helpful_scripts import get_status
 import requests
+# import json
+# import os
 
 def main():
     dynamicNFT = NFT[-1]
-    number_of_NFT = dynamicNFT.tokenCounter()
-    for token_id in range(number_of_NFT):
+    number_of_NFT = dynamicNFT.tokenId()
+    for token_id in range(1):
+        status = get_status(token_id)
         metadata_dir = (f"./get_metadata/{network.show_active()}/{token_id}-{status}.json")
         NFT_metadata = metadata_template
-        if Path(metadata_file_name).exists() :
+        if Path(metadata_dir).exists() :
             print ('metadatafile exists!')
         else:
-            NFT_metadata['name'] = f'chicago bulls{token_id}'
+            NFT_metadata['name'] = status
             NFT_metadata['description'] = 'dynamic nft!'
-            image_path = f"./img/{token_id}.png"
+            image_path = f"./img/{status}.jpg"
             image_uri = upload_to_ipfs(image_path)
             NFT_metadata['image'] = image_uri
-            
-             
-
+            print (NFT_metadata)
 
 def upload_to_ipfs(filepath):
     with Path(filepath).open('rb') as fp :
