@@ -1,15 +1,16 @@
 from brownie import NFT, network
-from get_metadata.rikeby.metadata import metadata_template
+from get_metadata.rinkeby.metadata import metadata_template
 from pathlib import Path
 from scripts.helpful_scripts import get_status
 import requests
-# import json
-# import os
+import json
+import os
 
 def main():
     dynamicNFT = NFT[-1]
     number_of_NFT = dynamicNFT.tokenId()
-    for token_id in range(1):
+    print (number_of_NFT, 'jikkkkkkkkkkkkkkkkkkkkk')
+    for token_id in range(number_of_NFT):
         status = get_status(token_id)
         metadata_dir = (f"./get_metadata/{network.show_active()}/{token_id}-{status}.json")
         NFT_metadata = metadata_template
@@ -18,10 +19,12 @@ def main():
         else:
             NFT_metadata['name'] = status
             NFT_metadata['description'] = 'dynamic nft!'
-            image_path = f"./img/{status}.jpg"
+            image_path = f"./img/{status}.png"
             image_uri = upload_to_ipfs(image_path)
             NFT_metadata['image'] = image_uri
-            print (NFT_metadata)
+            with open(metadata_dir, "w") as file:
+                json.dump(NFT_metadata, file)
+
 
 def upload_to_ipfs(filepath):
     with Path(filepath).open('rb') as fp :

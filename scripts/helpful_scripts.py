@@ -3,7 +3,7 @@ from brownie import network , accounts, config, NFT
 
 LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["development", "ganache-local"]
 STATUS_MAPPING = {0: "WIN", 1: "LOSE"}
-
+OPENSEA_URL = "https://testnets.opensea.io/assets/{}/{}"
 
 def get_account():
     if (network.show_active() in LOCAL_BLOCKCHAIN_ENVIRONMENTS):
