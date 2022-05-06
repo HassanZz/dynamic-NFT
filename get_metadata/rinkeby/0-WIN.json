@@ -1,6 +1,1 @@
-{
-  "name": "WIN",
-  "description": "dynamic nft!",
-  "image": "https://ipfs.io/ipfs/QmdXbYooopjiuYphC5GfXTzKn79gmvZy5mt2QHjchiPo7Y?filename=WIN.png",
-  "attributes": [{ "trait_type": "Happiness", "value": 100 }]
-}
+{"name": "WIN", "description": "dynamic nft!", "image": "https://ipfs.io/ipfs/QmdXbYooopjiuYphC5GfXTzKn79gmvZy5mt2QHjchiPo7Y?filename=WIN.png", "attributes": [{"trait_type": "Happiness", "value": 100}]}

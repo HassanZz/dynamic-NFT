@@ -1,6 +1,1 @@
-{
-  "name": "LOSE",
-  "description": "dynamic nft!",
-  "image": "https://ipfs.io/ipfs/QmZ619tipjs3SVh6nM5U9bK2ScuWZ7zkT8iQt2LzT3JrZE?filename=LOSE.png",
-  "attributes": [{ "trait_type": "Happiness", "value": 100 }]
-}
+{"name": "LOSE", "description": "dynamic nft!", "image": "https://ipfs.io/ipfs/QmZ619tipjs3SVh6nM5U9bK2ScuWZ7zkT8iQt2LzT3JrZE?filename=LOSE.png", "attributes": [{"trait_type": "Happiness", "value": 100}]}

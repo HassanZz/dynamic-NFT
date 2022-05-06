@@ -9,7 +9,6 @@ import os
 def main():
     dynamicNFT = NFT[-1]
     number_of_NFT = dynamicNFT.tokenId()
-    print (number_of_NFT, 'jikkkkkkkkkkkkkkkkkkkkk')
     for token_id in range(number_of_NFT):
         status = get_status(token_id)
         metadata_dir = (f"./get_metadata/{network.show_active()}/{token_id}-{status}.json")
@@ -24,6 +23,7 @@ def main():
             NFT_metadata['image'] = image_uri
             with open(metadata_dir, "w") as file:
                 json.dump(NFT_metadata, file)
+            upload_to_ipfs(metadata_dir)
 
 
 def upload_to_ipfs(filepath):
